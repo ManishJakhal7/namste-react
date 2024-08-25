@@ -1,7 +1,7 @@
 .head {
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 3px solid black;
 }
 .logo {
   width: 100px;
@@ -13,7 +13,6 @@
 }
 .nav-items > ul > li {
   padding: 10px;
-
   padding: right 20px;
   padding-inline-start: 40px;
   margin: 10px;
@@ -21,20 +20,56 @@
 .res-logo {
   height: 200px;
   width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 .restro-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  margin-left: 40px;
 }
 .res-card {
   display: inline-block;
-  margin: 3px;
-  padding: 3px;
-  height: 50%;
-  width: 200px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  margin: 20px;
+  height: auto;
 }
 .res-card:hover {
   cursor: pointer;
-  border: 1px solid black;
+  border: 3px solid #ddd;
+}
+.filter {
+  margin-top: 10px;
+  margin-left: 60px;
+}
+.filter-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+  background-color: #3e8e41;
+}
+
+.filter-btn:active {
+  background-color: #2f6f31;
+}
+
+.filter-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4caf50;
 }
