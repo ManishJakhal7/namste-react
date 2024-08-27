@@ -1,8 +1,28 @@
 import RestaurantCard from "./Restaurantcard";
-import { useState } from "../node_modules/react";
-import dataList from "../utilis/mockdata";
+import { useState, useEffect } from "../node_modules/react";
+import Shimmer from "./shimmer";
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurant] = useState(dataList);
+  const [listOfRestaurants, setListOfRestaurant] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(
+      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    );
+    setListOfRestaurant(
+      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    );
+  };
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
   return (
     <div className="body">
       <div className="search"></div>
@@ -21,7 +41,7 @@ const Body = () => {
       </div>
       <div className="restro-container">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard resData={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
