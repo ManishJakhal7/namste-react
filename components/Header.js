@@ -1,5 +1,7 @@
 import { CDN_LOGO } from "../utilis/constant";
+import { useState } from "react";
 const Header = () => {
+  const [btnName, setbtnName] = useState("Login");
   return (
     <div className="head">
       <div className="logo-conainer">
@@ -11,6 +13,14 @@ const Header = () => {
           <li>About</li>
           <li>Contact Us</li>
           <li>Cart</li>
+          <button
+            className="login-btn"
+            onClick={() => {
+              btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
+            }}
+          >
+            {btnName}
+          </button>
         </ul>
       </div>
     </div>
@@ -18,3 +28,5 @@ const Header = () => {
 };
 
 export default Header;
+
+//count increaase
