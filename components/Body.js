@@ -37,6 +37,16 @@ const Body = () => {
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                const filterdata = listOfRestaurants.filter((rest) =>
+                  rest.info.name
+                    .toLowerCase()
+                    .includes(SearchText.toLowerCase())
+                );
+                setFilteredRestarurant(filterdata);
+              }
+            }}
           ></input>
           <button
             onClick={() => {
