@@ -4,6 +4,7 @@ import Header from "/components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //import App from "App.js";
 // swiggy and zomato clone app
@@ -49,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/restaurantmenu",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <Error />,
